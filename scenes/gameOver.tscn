@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://imports/RapierZeroItalic-DyK3.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/gameOveScore.gd" type="Script" id=2]
+[ext_resource path="res://imports/EvilEmpire-4BBVK.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/playAgain.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = 2.85004
+margin_right = 1024.0
+margin_bottom = 602.85
+color = Color( 0.407843, 0.164706, 0.164706, 1 )
+
+[node name="gameOver" type="Label" parent="."]
+margin_right = 1024.0
+margin_bottom = 388.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Over!"
+align = 1
+valign = 1
+
+[node name="scoreText" type="Label" parent="."]
+margin_left = 64.6001
+margin_top = 280.35
+margin_right = 876.6
+margin_bottom = 370.35
+custom_fonts/font = SubResource( 2 )
+text = "Score:"
+align = 1
+valign = 1
+
+[node name="score" type="Label" parent="."]
+margin_left = 594.8
+margin_top = 280.35
+margin_right = 955.8
+margin_bottom = 370.35
+custom_fonts/font = SubResource( 3 )
+text = "Q"
+valign = 1
+script = ExtResource( 2 )
+
+[node name="playAgain" type="Button" parent="."]
+margin_left = 413.35
+margin_top = 403.6
+margin_right = 493.35
+margin_bottom = 427.6
+rect_scale = Vector2( 2.60251, 2.12798 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.937255, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.886275, 0.588235, 0.0705882, 1 )
+text = "Play Again"
+flat = true
+script = ExtResource( 4 )
+[connection signal="pressed" from="playAgain" to="playAgain" method="_on_playAgain_pressed"]
